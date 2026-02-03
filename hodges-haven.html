@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hodges Haven for Heroes - A Place of Rest, Renewal & Opportunity</title>
+    <meta name="description" content="Veteran-led transitional housing in Marion, Arkansas. Supporting veterans and their families with dignity, respect, and purpose.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* --- DESIGN TOKENS --- */
+        :root {
+            /* Colors - Warm, Trustworthy Palette */
+            --bg: #FAF9F7;
+            --bg-warm: #F5F3EF;
+            --bg-dark: #2C3E3F;
+            --text: #3A4F50;
+            --text-light: #6B7F80;
+            --navy: #1B3A3D;
+            --accent: #C17647; /* Warm bronze/copper */
+            --accent-dark: #9A5E38;
+            --gold: #D4A574;
+            --service-blue: #4A7C8C;
+            --line: #E0DDD8;
+            
+            /* Typography */
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Lora', serif;
+            
+            /* Spacing */
+            --container-width: 1100px;
+            --container-narrow: 700px;
+            --section-padding: 5rem 2rem;
+            --border-radius: 2px;
+        }
+
+        /* --- RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* --- SUBTLE TEXTURE BACKGROUND --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, var(--navy) 2px, var(--navy) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, var(--navy) 2px, var(--navy) 4px);
+            background-size: 40px 40px;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .narrow-container {
+            max-width: var(--container-narrow);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: var(--section-padding);
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            color: var(--navy);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        .subheadline {
+            font-size: 1.35rem;
+            color: var(--text-light);
+            font-style: italic;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .emphasis {
+            color: var(--accent);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* --- HEADER --- */
+        .site-header {
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--line);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-shield {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-shield::before {
+            content: '★';
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--navy);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white !important;
+            padding: 0.65rem 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(193, 118, 71, 0.3);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            padding: 7rem 2rem 8rem;
+            background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(193, 118, 71, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(-50px, -50px) scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(193, 118, 71, 0.1);
+            color: var(--accent-dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 30px;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(193, 118, 71, 0.2);
+        }
+
+        .founders-note {
+            margin-top: 2.5rem;
+            padding: 1.75rem 2rem;
+            background: white;
+            border-left: 4px solid var(--accent);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .founders-note p {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .founders-signature {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* --- DIVIDER --- */
+        .section-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 0;
+        }
+
+        .divider-stars {
+            display: flex;
+            gap: 1rem;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-section {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            background: var(--bg-warm);
+            border-radius: var(--border-radius);
+            border-top: 4px solid var(--service-blue);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .checkmark {
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* --- WHY SECTION --- */
+        .why-section {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        .why-section h2,
+        .why-section h3 {
+            color: white;
+        }
+
+        .why-section h2::after {
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .why-card:nth-child(1) { animation-delay: 0.2s; }
+        .why-card:nth-child(2) { animation-delay: 0.3s; }
+        .why-card:nth-child(3) { animation-delay: 0.4s; }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: rgba(212, 165, 116, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .why-section p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* --- PRICING SECTION --- */
+        .pricing-section {
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-warm) 100%);
+        }
+
+        .pricing-box {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--line);
+        }
+
+        .pricing-highlight {
+            background: rgba(193, 118, 71, 0.08);
+            padding: 1.5rem 2rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .pricing-rate {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .pricing-note {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* --- LOCATION SECTION --- */
+        .location-section {
+            background: white;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-info {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .address-box {
+            background: var(--bg-warm);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+            border-left: 4px solid var(--service-blue);
+        }
+
+        .address-box h4 {
+            font-family: var(--font-display);
+            margin-bottom: 1rem;
+        }
+
+        .address {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e8f1f2 0%, #d4e8ea 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            color: var(--service-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg) 100%);
+        }
+
+        .form-container {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: 1px solid var(--line);
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .form-note {
+            background: rgba(193, 118, 71, 0.08);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-warm);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .contact-details h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-details a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            padding: 1.25rem 3rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(193, 118, 71, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(193, 118, 71, 0.4);
+        }
+
+        /* --- PHOTO PLACEHOLDERS --- */
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-offset) 0%, var(--bg-warm) 100%);
+            border: 2px dashed var(--line);
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.02) 20px);
+            pointer-events: none;
+        }
+
+        .photo-placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-placeholder-label {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-placeholder-description {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            opacity: 0.7;
+            max-width: 250px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .photo-large {
+            height: 400px;
+        }
+
+        .photo-medium {
+            height: 300px;
+        }
+
+        .photo-small {
+            height: 250px;
+        }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2.5rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-heart {
+            color: var(--gold);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 968px) {
+            :root {
+                --section-padding: 4rem 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .hero-section {
+                padding: 5rem 1.5rem 6rem;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .photo-large,
+            .photo-medium {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .photo-small {
+                height: 200px;
+            }
+
+            .photo-placeholder-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-shield"></div>
+                <div class="logo">Hodges Haven for Heroes</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#services">What We Offer</a></li>
+                    <li><a href="#why">Why Us</a></li>
+                    <li><a href="#pricing">Affordability</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact" class="nav-cta">Connect With Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-badge">Veteran-Led Transitional Housing Program</div>
+                <h1>Professional Transitional Housing & Comprehensive Support Services</h1>
+                <p class="subheadline">
+                    Hodges Haven for Heroes provides <span class="emphasis">structured transitional housing</span> and comprehensive support services for veterans and their families in Marion, Arkansas. Our evidence-based program model facilitates successful reintegration into civilian life through housing stability, skills development, and career readiness.
+                </p>
+                
+                <div class="founders-note">
+                    <p><strong>Leadership Statement</strong></p>
+                    <p>Founded and operated by veterans Monte and Rhonda Hodges, our organization delivers proven transitional support programming. With combined decades of military service and community development experience, our leadership team understands the unique challenges veterans face post-service and has designed a comprehensive model to address housing instability, employment barriers, and social reintegration.</p>
+                    <p class="founders-signature">— Monte & Rhonda Hodges, Co-Founders</p>
+                </div>
+
+                <!-- Hero Image Placeholder -->
+                <div style="margin-top: 3rem;">
+                    <div class="photo-placeholder photo-large">
+                        <div class="photo-placeholder-icon">📸</div>
+                        <div class="photo-placeholder-label">Hero Image</div>
+                        <div class="photo-placeholder-description">
+                            Facility exterior, welcoming entrance, or program participants in common area
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <div class="divider-stars">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+            </div>
+        </div>
+
+        <section id="services" class="services-section section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Program Services & Amenities</h2>
+                    <p class="subheadline" style="margin: 0 auto 3rem;">Our comprehensive service model addresses the multifaceted needs of transitioning veterans through integrated programming and wraparound support services.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>Transitional Housing</h3>
+                        <p>Structured residential environment with private accommodations, providing stable housing during the critical transition period to independent living.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🍽️</div>
+                        <h3>Meal Services</h3>
+                        <p>Two daily nutritionally-balanced meals included in program fees, supporting health and wellness objectives.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">💡</div>
+                        <h3>Utilities & Amenities</h3>
+                        <p>All utilities, internet access, and facility amenities included—no additional fees or hidden costs beyond stated program rates.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">💪</div>
+                        <h3>Fitness & Wellness</h3>
+                        <p>On-site fitness facilities and wellness programming to support physical health, stress management, and overall wellbeing.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">💼</div>
+                        <h3>Career Development Services</h3>
+                        <p>Job readiness training, resume development, interview preparation, and employer networking opportunities to facilitate employment placement.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📚</div>
+                        <h3>Educational Programming</h3>
+                        <p>Life skills workshops, financial literacy training, and educational support services designed to build capacity for long-term independence.</p>
+                    </div>
+                </div>
+
+                <!-- Program Photos Grid -->
+                <div class="photo-grid" style="margin-top: 4rem;">
+                    <div class="photo-placeholder photo-medium">
+                        <div class="photo-placeholder-icon">📸</div>
+                        <div class="photo-placeholder-label">Housing Accommodations</div>
+                        <div class="photo-placeholder-description">
+                            Clean, furnished resident room or living space
+                        </div>
+                    </div>
+
+                    <div class="photo-placeholder photo-medium">
+                        <div class="photo-placeholder-icon">📸</div>
+                        <div class="photo-placeholder-label">Common Areas</div>
+                        <div class="photo-placeholder-description">
+                            Shared living space, community room, or lounge area
+                        </div>
+                    </div>
+
+                    <div class="photo-placeholder photo-medium">
+                        <div class="photo-placeholder-icon">📸</div>
+                        <div class="photo-placeholder-label">Fitness & Wellness</div>
+                        <div class="photo-placeholder-description">
+                            Exercise equipment, wellness space, or outdoor areas
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why" class="why-section section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Program Differentiators</h2>
+                    <p class="subheadline" style="margin: 0 auto; color: rgba(255,255,255,0.85);">Evidence-based programming delivered by experienced veteran leadership.</p>
+                </div>
+                
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon">🤝</div>
+                        <h3>Peer Support Model</h3>
+                        <p>Structured peer support and mentorship from fellow veterans who understand military culture and transition challenges.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-icon">🎯</div>
+                        <h3>Outcomes-Focused Approach</h3>
+                        <p>Data-driven program design with measurable outcomes in employment placement, housing stability, and skills development.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-icon">🎖️</div>
+                        <h3>Veteran Leadership</h3>
+                        <p>Program founded and operated by veterans with extensive military service and proven track records in community development.</p>
+                    </div>
+                </div>
+
+                <!-- Leadership Photos -->
+                <div class="photo-grid" style="margin-top: 4rem; grid-template-columns: repeat(2, 1fr); max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <div class="photo-placeholder photo-medium">
+                        <div class="photo-placeholder-icon">📸</div>
+                        <div class="photo-placeholder-label">Founders Photo</div>
+                        <div class="photo-placeholder-description">
+                            Monte & Rhonda Hodges professional headshots or candid photo
+                        </div>
+                    </div>
+
+                    <div class="photo-placeholder photo-medium">
+                        <div class="photo-placeholder-icon">📸</div>
+                        <div class="photo-placeholder-label">Program in Action</div>
+                        <div class="photo-placeholder-description">
+                            Career workshop, group activity, or mentoring session
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing-section section-padding">
+            <div class="container narrow-container">
+                <div class="text-center">
+                    <h2>Program Fees & Financial Accessibility</h2>
+                </div>
+                
+                <div class="pricing-box">
+                    <p style="font-size: 1.15rem; text-align: center; margin-bottom: 2rem;">
+                        Hodges Haven for Heroes maintains an <strong>income-based fee structure</strong> to ensure program accessibility regardless of financial circumstances.
+                    </p>
+
+                    <div class="pricing-highlight">
+                        <p style="margin-bottom: 1rem;"><strong>Sliding Scale Fee Model</strong></p>
+                        <p style="margin-bottom: 0; font-size: 1rem;">Individual program fees are assessed during the intake process based on income verification and financial capability. Our fee structure is designed to remove financial barriers while maintaining program sustainability.</p>
+                    </div>
+
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <p style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--text-light);">Standard Program Rate:</p>
+                        <span class="pricing-rate">$2,000/month</span>
+                        <p class="pricing-note">Comprehensive package includes housing, utilities, meals, facility access, and all programming services</p>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 2rem; font-style: italic; color: var(--text-light);">
+                        Financial assistance available for eligible participants through our income-based fee reduction program.
+                    </p>
+                </div>
+
+                <!-- Testimonial/Success Stories Photo -->
+                <div style="margin-top: 3rem;">
+                    <div class="photo-placeholder photo-medium" style="max-width: 700px; margin: 0 auto;">
+                        <div class="photo-placeholder-icon">📸</div>
+                        <div class="photo-placeholder-label">Success Story / Testimonial</div>
+                        <div class="photo-placeholder-description">
+                            Program graduate or current participant (with permission) - optional testimonial quote overlay
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="location-section section-padding">
+            <div class="container">
+                <div class="location-content">
+                    <div class="location-info">
+                        <h2>Facility Location</h2>
+                        <p>Our transitional housing facility is strategically located in Marion, Arkansas, directly off Interstate 55, providing easy access from Memphis and the broader Mid-South region. The facility operates within the Comfort Inn property, offering professional accommodations and amenities in a supportive residential setting.</p>
+                        
+                        <div class="address-box">
+                            <h4>📍 Address</h4>
+                            <div class="address">
+                                <strong>Hodges Haven for Heroes</strong><br>
+                                Comfort Inn<br>
+                                2700 I-55 Service Rd<br>
+                                Marion, AR 72364
+                            </div>
+                        </div>
+
+                        <!-- Facility Exterior Photo -->
+                        <div style="margin-top: 2rem;">
+                            <div class="photo-placeholder photo-small">
+                                <div class="photo-placeholder-icon">📸</div>
+                                <div class="photo-placeholder-label">Facility Exterior</div>
+                                <div class="photo-placeholder-description">
+                                    Building exterior, entrance, or signage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.0234566799746!2d-90.19685!3d35.21553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d57f2a4c4b8f5f%3A0x1234567890abcdef!2s2700%20I-55%20Service%20Rd%2C%20Marion%2C%20AR%2072364!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-padding">
+            <div class="container narrow-container">
+                <div class="form-container">
+                    <div class="form-intro">
+                        <h2 style="margin-bottom: 1rem;">Inquiries & Program Information</h2>
+                        <p>Contact our intake coordination team to learn more about program eligibility, services, and the application process. We respond to all inquiries within one business day.</p>
+                    </div>
+
+                    <div class="form-note">
+                        <strong>Online Application Form:</strong> A secure online intake form will be integrated here. For immediate assistance, please use the contact information below.
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h4>Call Us</h4>
+                                <p><a href="tel:+18005551234">(800) 555-1234</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h4>Email Us</h4>
+                                <p><a href="/cdn-cgi/l/email-protection#5e373038311e36313a393b2d363f283b3070312c39"><span class="__cf_email__" data-cfemail="deb7b0b8b19eb6b1bab9bbadb6bfa8bbb0f0b1acb9">[email&#160;protected]</span></a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h4>Visit Us</h4>
+                                <p>2700 I-55 Service Rd<br>Marion, AR 72364</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2.5rem;">
+                        <a href="/cdn-cgi/l/email-protection#0960676f664961666d6e6c7a61687f6c6727667b6e" class="cta-button">
+                            Request Program Information
+                        </a>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 2rem; font-style: italic; color: var(--text-light); font-size: 0.95rem;">
+                        Professional intake consultations available by appointment.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>Hodges Haven for Heroes</strong></p>
+                <p>Professional transitional housing and support services for veterans.</p>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1.5rem;">© 2025 Hodges Haven for Heroes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'tra
