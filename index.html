@@ -951,20 +951,60 @@
                 </div>
 
                 <!-- Leadership Photos -->
-                <div class="photo-grid" style="margin-top: 4rem; grid-template-columns: repeat(2, 1fr); max-width: 800px; margin-left: auto; margin-right: auto;">
-                   <img src="Founders Photo.jpg" alt="Meet the Hodges" style="width: 100%; height: auto; display: block; border-radius: 2px;">
-                        <div class="photo-placeholder-description">
-                            Monte & Rhonda Hodges
-                        </div>
-                    </div>
+                <div class="photo-grid" style="
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem; 
+    max-width: 850px; 
+    margin: 4rem auto; 
+    padding: 0 20px;
+">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="Founders Photo.jpg" alt="Meet the Hodges" style="
+            width: 100%; 
+            aspect-ratio: 4 / 3; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        ">
+        <div class="photo-placeholder-description" style="
+            margin-top: 1rem; 
+            padding: 10px 15px; 
+            background: #f8f9fa; 
+            border-radius: 4px; 
+            font-weight: 600; 
+            color: #444; 
+            text-align: center; 
+            width: 90%;
+            border: 1px solid #e9ecef;
+        ">
+            Monte & Rhonda Hodges
+        </div>
+    </div>
 
-                    <img src="Program.PNG" alt="Program in Action" style="width: 100%; height: auto; display: block; border-radius: 2px;">
-                        <div class="photo-placeholder-description">
-                            Career workshop, group activity, or mentoring session
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="Program.PNG" alt="Program in Action" style="
+            width: 100%; 
+            aspect-ratio: 4 / 3; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        ">
+        <div class="photo-placeholder-description" style="
+            margin-top: 1rem; 
+            padding: 10px 15px; 
+            background: #f8f9fa; 
+            border-radius: 4px; 
+            font-weight: 600; 
+            color: #444; 
+            text-align: center; 
+            width: 90%;
+            border: 1px solid #e9ecef;
+        ">
+            Career workshop, group activity, or mentoring session
+        </div>
+    </div>
+</div>
         </section>
 
         <section id="pricing" class="pricing-section section-padding">
@@ -995,11 +1035,15 @@
                 </div>
 
                 <!-- Testimonial/Success Stories Photo -->
-                <div style="margin-top: 3rem;">
-                    <img src="Testimonial.PNG" alt="Start your new beginnings !" style="width: 100%; height: auto; display: block; border-radius: 2px;">
-                        <div class="photo-placeholder-description">
-                            Begin your journey , and complete in X - Y Months
-                        </div>
+               <div style="max-width: 600px; margin: 3rem auto; text-align: center; font-family: sans-serif;">
+    <img src="Testimonial.PNG" alt="Start your new beginnings!" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    
+    <div style="margin-top: 15px; padding: 10px; background: #f0f4f8; border-bottom: 3px solid #0056b3; display: inline-block; font-weight: bold; color: #333;">
+        Begin your journey, and complete in X - Y Months
+    </div>
+</div>
+
+<hr style="border: 0; border-top: 1px solid #eee; margin: 4rem 0;">
                     </div>
                 </div>
             </div>
@@ -1025,7 +1069,6 @@
                         <!-- Facility Exterior Photo -->
                         <div style="margin-top: 2rem;">
                             <img src="Facilty Exterior.jpg" alt="Exterior View" style="width: 100%; height: auto; display: block; border-radius: 2px;">
-                                <div class="photo-placeholder-icon">📸</div>
                                 <div class="photo-placeholder-label">Facility Exterior</div>
                                 <div class="photo-placeholder-description">
                                     Building exterior descriton placeholder (Optional)
